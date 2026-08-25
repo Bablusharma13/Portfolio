@@ -1,22 +1,50 @@
-import { SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiRedis, SiDocker } from "react-icons/si";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiJavascript,
+  SiTypescript,
+  SiTailwindcss,
+  SiRedis,
+  SiDocker,
+} from "react-icons/si";
 
-const NODES = [
-  { cx: 80, cy: 70, label: "React", accent: false, Icon: SiReact, iconColor: "#61dafb" },
-  { cx: 360, cy: 50, label: "Next.js", accent: true, Icon: SiNextdotjs, iconColor: "#ffffff" },
-  { cx: 540, cy: 130, label: "Node.js", accent: false, Icon: SiNodedotjs, iconColor: "#5fa04e" },
-  { cx: 520, cy: 320, label: "MongoDB", accent: true, Icon: SiMongodb, iconColor: "#47a248" },
-  { cx: 300, cy: 380, label: "Redis", accent: false, Icon: SiRedis, iconColor: "#dc382d" },
-  { cx: 70, cy: 300, label: "Docker", accent: false, Icon: SiDocker, iconColor: "#2496ed" },
+const CENTER_X = 300;
+const CENTER_Y = 210;
+const RADIUS_X = 255;
+const RADIUS_Y = 155;
+const ICON_SIZE = 32;
+
+const TECHS = [
+  { label: "Next.js", Icon: SiNextdotjs, iconColor: "#ffffff", accent: true },
+  { label: "Node.js", Icon: SiNodedotjs, iconColor: "#5fa04e", accent: false },
+  { label: "Express.js", Icon: SiExpress, iconColor: "#ffffff", accent: false },
+  { label: "MongoDB", Icon: SiMongodb, iconColor: "#47a248", accent: true },
+  { label: "TypeScript", Icon: SiTypescript, iconColor: "#3178c6", accent: false },
+  { label: "Redis", Icon: SiRedis, iconColor: "#dc382d", accent: false },
+  { label: "Tailwind CSS", Icon: SiTailwindcss, iconColor: "#38bdf8", accent: false },
+  { label: "Docker", Icon: SiDocker, iconColor: "#2496ed", accent: false },
+  { label: "JavaScript", Icon: SiJavascript, iconColor: "#f7df1e", accent: false },
+  { label: "React", Icon: SiReact, iconColor: "#61dafb", accent: false },
 ];
 
-const PATHS = [
-  "M80,70 Q190,110 300,210",
-  "M360,50 Q330,100 300,210",
-  "M540,130 Q420,140 300,210",
-  "M520,320 Q410,235 300,210",
-  "M300,380 Q300,265 300,210",
-  "M70,300 Q185,225 300,210",
-];
+const STEP = 360 / TECHS.length;
+
+const NODES = TECHS.map((tech, i) => {
+  const angleDeg = -90 + i * STEP;
+  const angleRad = (angleDeg * Math.PI) / 180;
+  const cx = Math.round(CENTER_X + RADIUS_X * Math.cos(angleRad));
+  const cy = Math.round(CENTER_Y + RADIUS_Y * Math.sin(angleRad));
+  return { ...tech, cx, cy };
+});
+
+const PATHS = NODES.map((node) => {
+  const midX = (node.cx + CENTER_X) / 2;
+  const midY = (node.cy + CENTER_Y) / 2 - 30;
+  return `M${node.cx},${node.cy} Q${midX},${midY} ${CENTER_X},${CENTER_Y}`;
+});
 
 export default function HeroVisual() {
   return (
@@ -52,7 +80,7 @@ export default function HeroVisual() {
       {PATHS.map((d, i) => {
         const accent = NODES[i]?.accent;
         const stroke = accent ? "#fbbf24" : "#e5e5e5";
-        const dur = 3.2 + i * 0.4;
+        const dur = 3.2 + i * 0.3;
         return (
           <g key={d}>
             <path d={d} stroke="url(#line-grad)" strokeWidth="1.2" fill="none" opacity="0.7" />
@@ -73,14 +101,15 @@ export default function HeroVisual() {
 
       {NODES.map((node) => {
         const labelW = node.label.length * 7 + 24;
-        const tx = node.cx > 300 ? node.cx - labelW - 10 : node.cx + 26;
+        const tx = node.cx > 300 ? node.cx - labelW - 14 : node.cx + 32;
         const anchor = node.cx > 300 ? "end" : "start";
         const textX = node.cx > 300 ? labelW - 7 : 7;
         const Icon = node.Icon;
+        const half = ICON_SIZE / 2;
         return (
           <g key={node.label}>
             <g className="pulse-soft">
-              <Icon x={node.cx - 13} y={node.cy - 13} size={26} color={node.iconColor} />
+              <Icon x={node.cx - half} y={node.cy - half} size={ICON_SIZE} color={node.iconColor} />
             </g>
             <g transform={`translate(${tx}, ${node.cy + 4})`}>
               <rect x="0" y="-12" rx="6" ry="6" width={labelW} height="22" fill="#141414" stroke="rgba(255,255,255,0.15)" />

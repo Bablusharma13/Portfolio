@@ -311,6 +311,10 @@ html.lenis body {
   animation: dash-flow 4s linear infinite;
 }
 
+button:not(:disabled) {
+  cursor: pointer;
+}
+
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--accent);
