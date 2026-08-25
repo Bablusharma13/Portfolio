@@ -1,10 +1,12 @@
+import { SiReact, SiNextdotjs, SiNodedotjs, SiMongodb, SiRedis, SiDocker } from "react-icons/si";
+
 const NODES = [
-  { cx: 80, cy: 70, label: "React", accent: false },
-  { cx: 360, cy: 50, label: "Next.js", accent: true },
-  { cx: 540, cy: 130, label: "Node.js", accent: false },
-  { cx: 520, cy: 320, label: "MongoDB", accent: true },
-  { cx: 300, cy: 380, label: "Redis", accent: false },
-  { cx: 70, cy: 300, label: "Docker", accent: false },
+  { cx: 80, cy: 70, label: "React", accent: false, Icon: SiReact, iconColor: "#61dafb" },
+  { cx: 360, cy: 50, label: "Next.js", accent: true, Icon: SiNextdotjs, iconColor: "#ffffff" },
+  { cx: 540, cy: 130, label: "Node.js", accent: false, Icon: SiNodedotjs, iconColor: "#5fa04e" },
+  { cx: 520, cy: 320, label: "MongoDB", accent: true, Icon: SiMongodb, iconColor: "#47a248" },
+  { cx: 300, cy: 380, label: "Redis", accent: false, Icon: SiRedis, iconColor: "#dc382d" },
+  { cx: 70, cy: 300, label: "Docker", accent: false, Icon: SiDocker, iconColor: "#2496ed" },
 ];
 
 const PATHS = [
@@ -70,16 +72,16 @@ export default function HeroVisual() {
       })}
 
       {NODES.map((node) => {
-        const stroke = node.accent ? "#fbbf24" : "#e5e5e5";
-        const fill = node.accent ? "#fbbf24" : "#e5e5e5";
         const labelW = node.label.length * 7 + 24;
-        const tx = node.cx > 300 ? node.cx - labelW - 8 : node.cx + 22;
+        const tx = node.cx > 300 ? node.cx - labelW - 10 : node.cx + 26;
         const anchor = node.cx > 300 ? "end" : "start";
         const textX = node.cx > 300 ? labelW - 7 : 7;
+        const Icon = node.Icon;
         return (
           <g key={node.label}>
-            <circle cx={node.cx} cy={node.cy} r="18" fill="#141414" stroke={stroke} strokeWidth="1.6" />
-            <circle cx={node.cx} cy={node.cy} r="5" fill={fill} className="pulse-soft" />
+            <g className="pulse-soft">
+              <Icon x={node.cx - 13} y={node.cy - 13} size={26} color={node.iconColor} />
+            </g>
             <g transform={`translate(${tx}, ${node.cy + 4})`}>
               <rect x="0" y="-12" rx="6" ry="6" width={labelW} height="22" fill="#141414" stroke="rgba(255,255,255,0.15)" />
               <text x={textX} y="3" textAnchor={anchor} fill="#d4d4d8" fontSize="10.5" fontFamily="var(--font-mono)">
@@ -96,7 +98,16 @@ export default function HeroVisual() {
           <animate attributeName="r" values="40;52;40" dur="3.4s" repeatCount="indefinite" />
           <animate attributeName="stroke-opacity" values="0.6;0;0.6" dur="3.4s" repeatCount="indefinite" />
         </circle>
-        <text x="300" y="206" textAnchor="middle" fill="#fafafa" fontSize="13" fontFamily="var(--font-display)" fontWeight="700">
+        <text
+          x="300"
+          y="205"
+          textAnchor="middle"
+          fill="#fafafa"
+          fontSize="12.5"
+          fontFamily="var(--font-mono)"
+          fontWeight="700"
+          letterSpacing="2"
+        >
           MERN
         </text>
         <text x="300" y="221" textAnchor="middle" fill="#a8a29e" fontSize="9" fontFamily="var(--font-mono)" letterSpacing="1">

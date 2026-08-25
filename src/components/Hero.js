@@ -28,7 +28,7 @@ export default function Hero() {
   const firstName = profile.name.split(" ")[0];
 
   return (
-    <section id="top" className="relative pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section id="top" className="relative pt-24 pb-20 sm:pt-28 sm:pb-28">
       <div className="aurora" />
       <div className="absolute inset-0 grid-bg fade-radial opacity-70 pointer-events-none" />
 

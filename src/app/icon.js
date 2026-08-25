@@ -20,14 +20,20 @@ export default function Icon() {
       >
         <svg width="22" height="22" viewBox="0 0 40 40" fill="none">
           <path
-            d="M11 25 L17 13 L29 13"
+            d="M17 12 L10 20 L17 28"
             stroke="#fafafa"
-            strokeWidth="2.4"
+            strokeWidth="2.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx="29" cy="13" r="2.6" fill="#fbbf24" />
-          <circle cx="11" cy="25" r="2.2" fill="#ffffff" />
+          <path
+            d="M23 12 L30 20 L23 28"
+            stroke="#fafafa"
+            strokeWidth="2.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <line x1="21.5" y1="10" x2="18.5" y2="30" stroke="#fbbf24" strokeWidth="2.6" strokeLinecap="round" />
         </svg>
       </div>
     ),

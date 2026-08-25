@@ -22,13 +22,14 @@ export const experience = [
       "Building and maintaining REST APIs and authentication systems using Node.js and Express.js to support secure, scalable application workflows.",
       "Implementing search functionality using Elasticsearch and real-time features to enhance product usability and user experience.",
       "Optimizing application performance through caching strategies using Redis and efficient data handling with MongoDB and MySQL.",
+      "Collaborating on API documentation using Postman collections.",
     ],
   },
   {
     company: "Pisoft Informatics Pvt. Ltd.",
     location: "Mohali district",
     role: "MERN Stack Developer",
-    period: "January 2025 – July 2025",
+    period: "October 2024 – July 2025",
     bullets: [
       "Worked across the MERN stack (MongoDB, Express.js, React.js, Node.js) to build and maintain web application features.",
       "Built reusable, responsive UI components with React.js and Redux Toolkit, improving consistency and maintainability across the codebase.",
@@ -59,28 +60,44 @@ export const projects = [
     stack: ["Next.js", "React.js", "Node.js", "Express.js", "MongoDB", "Elasticsearch", "Redis", "Redux Toolkit", "Tailwind CSS", "Stripe", "Docker"],
   },
   {
-    title: "Full-Stack API Monitoring Platform",
-    period: "AllHeart Web",
+    title: "Full-Stack API Monitoring Platform (CRM Dashboard)",
+    period: "Pisoft Informatics",
     description:
       "Multi-tenant SaaS API monitoring platform that continuously tracks external API health (uptime, latency, status codes).",
     highlights: [
       "Designed and built scheduled BullMQ workers running every minute to track API health.",
       "Implemented an automated incident management system that detects status changes, creates/resolves incidents, and dispatches email alerts via a dedicated email microservice.",
       "Built a cron job heartbeat monitor using an inbound ping-based system to detect missed or late scheduled jobs with configurable grace periods.",
-      "Developed a React 19 frontend with server-side pagination/filtering tables and real-time dashboards (SLO, traffic, latency, saturation).",
-      "Engineered multi-tenant architecture with per-tenant MongoDB connections and separate analytics pipelines.",
+      "Developed a React 19 frontend with server-side pagination/filtering tables, permission-based sidebar navigation, and real-time dashboards (SLO, traffic, latency, saturation).",
+      "Engineered multi-tenant architecture with per-tenant MongoDB connections and separate analytics pipelines for endpoint metrics, request logs, and traces.",
       "Integrated Redis + BullMQ for job queue persistence with automatic re-sync on Redis flush to ensure zero job loss.",
     ],
     stack: ["React 19", "Express 5", "MongoDB", "Redis", "BullMQ", "Tailwind CSS"],
   },
+  {
+    title: "SmartCampus — Multi-Tenant School & College Management SaaS",
+    period: "Personal Project",
+    description:
+      "Multi-tenant school & college management SaaS covering attendance, fees, exams, homework, library, transport, and payroll across student, parent, and staff roles.",
+    highlights: [
+      "Developed secure REST APIs with JWT access/refresh tokens, OTP login, and TOTP 2FA.",
+      "Built RBAC with per-member permission overrides across student, parent, and staff roles.",
+      "Integrated Razorpay billing with automated PDF receipt generation.",
+      "Built real-time chat, notices, and live class-status features with Socket.io.",
+      "Implemented background job processing with Redis and BullMQ.",
+      "Added AI-assisted features backed by an OpenAI-compatible API with a rule-engine fallback.",
+    ],
+    stack: ["Node.js", "Express.js", "JWT", "Socket.io", "Redis", "BullMQ", "Razorpay", "OpenAI API"],
+  },
 ];
 
 export const skills = [
-  { category: "Programming", items: ["JavaScript", "Python"] },
+  { category: "Programming", items: ["JavaScript", "TypeScript", "Python"] },
   { category: "Frontend", items: ["React.js", "Next.js", "Redux Toolkit", "Tailwind CSS"] },
-  { category: "Backend", items: ["Node.js", "Express.js", "REST APIs"] },
+  { category: "Backend", items: ["Node.js", "Express.js", "REST APIs", "BullMQ"] },
   { category: "Databases & Search", items: ["MongoDB", "MySQL", "Redis", "Elasticsearch"] },
-  { category: "Tools & Platforms", items: ["Docker", "Git/GitHub"] },
+  { category: "DevOps & Tools", items: ["CI/CD", "Docker", "Git", "GitHub", "Postman"] },
+  { category: "AI-Assisted Development", items: ["Claude", "Codex", "Cursor", "Prompt Engineering", "ChatGPT"] },
 ];
 
 export const education = [
