@@ -5,7 +5,7 @@ export const profile = {
   email: "bk392534@gmail.com",
   phone: "+91 7667869102",
   location: "Chandigarh, Punjab, India",
-  linkedin: "https://linkedin.com/in/bablukumar-7b7028275",
+  linkedin: "https://www.linkedin.com/in/bablu-kumar-7b7028275/",
   github: "https://github.com/bablusharma13",
   resumeUrl: "/BabluKumarResume.pdf",
 };
